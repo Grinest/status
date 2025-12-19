@@ -1,36 +1,57 @@
 # Change these first
-owner: MiAguila 
+owner: Grinest
 repo: uptime
 
 sites:
-  - name: Orders production
-    url: https://orders.api.katapultcommerce.com/api/health/
-  - name: metrics
-    url: https://metrics.api.katapultcommerce.com/api/health
+  # Web's
+  - name: Grinest Landing Page
+    url: https://grinest.com/
+  - name: Control Tower Web
+    url: https://control-tower.grinest.com/
+  # API's
+  - name: Core API
+    url: https://core.api.prd.grinest.com/v1/health/
+  - name: Tasks Server API (Celery)
+    url: https://tasks-server.api.prd.grinest.com/v1/health/
+  - name: Webhooks API
+    url: https://webhooks.api.prd.grinest.com/v1/health/
+  # Platforms
+  - name: Metabase
+    url: https://metabase.prd.grinest.com/
+  - name: Grafana
+    url: https://grafana.prd.grinest.com/
+
+## Workers
+#  drivers payments job (Generdor de pagos conducores semanal)
+#  sync ampeco data job (ETL datos maestros AMPECO)
+#  sync recharging reserv job (Sesiones de carga)
+#  sync recharging ses job
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: uptime.katapultcommerce.com
+  cname: status.prd.grinest.com
   # baseUrl: /your-repo-name
-  logoUrl: https://media-exp2.licdn.com/dms/image/C560BAQG0w85tovXNDw/company-logo_200_200/0/1652748232832?e=1663200000&v=beta&t=DqF-eoJkRC69MaeTKgVcReyx79X6vh3FtQjYxQwYwYM
-  name: Katapult Commerce Uptime Page
+  logoUrl: https://grinest.com/wp-content/uploads/2023/11/image-1.svg
+  name: Estado de Servicios - Grinest
   introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  introMessage: Bienvenido al centro de monitoreo de la plataforma de transporte **Grinest**. Aquí puedes consultar el estado operacional de todos nuestros servicios, aplicaciones web y APIs. Los datos se actualizan automáticamente cada 2 minutos para garantizar información precisa y oportuna sobre la disponibilidad de nuestra infraestructura tecnológica.
   navbar:
-    - title: Status
+    - title: Estado de Servicios
       href: /
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 
+# Notificaciones de Slack cuando un servicio está caído
+notifications:
+  - type: slack
+    webhook-url: $NOTIFICATION_SLACK_WEBHOOK_URL
+
 workflowSchedule:
-  graphs: "0 0 * * *"
-  responseTime: "0 23 * * *"
-  staticSite: "0 1 * * *"
-  summary: "0 0 * * *"
-  updateTemplate: "0 0 * * *"
-  updates: "0 3 * * *"
-  uptime: "*/5 * * * *"
+  uptime: "*/2 * * * *"        # Verificar estado cada 2 minutos
+  responseTime: "0 */6 * * *"  # Actualizar tiempos de respuesta cada 6 horas
+  graphs: "0 0 * * *"          # Generar gráficos diariamente a medianoche
+  staticSite: "0 1 * * *"      # Actualizar sitio web diariamente a la 1:00 AM
 
 # Upptime also supports notifications, assigning issues, and more
 # See https://upptime.js.org/docs/configuration
