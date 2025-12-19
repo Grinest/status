@@ -6,6 +6,7 @@ sites:
   # Web's
   - name: Grinest Landing Page
     url: https://grinest.com/
+    __dangerous__insecure: true
   - name: Control Tower Web
     url: https://control-tower.grinest.com/
   # API's
