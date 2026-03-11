@@ -1,7 +1,7 @@
 url: https://metabase.prd.grinest.com/
-status: down
-code: 502
-responseTime: 197
-lastUpdated: 2026-03-11T05:27:57.360Z
+status: up
+code: 200
+responseTime: 329
+lastUpdated: 2026-03-11T05:48:27.508Z
 startTime: 2025-12-19T11:36:53.892Z
 generator: Upptime <https://github.com/upptime/upptime>
