@@ -1,7 +1,7 @@
 url: https://webhooks.api.prd.grinest.com/v1/health/
 status: up
 code: 200
-responseTime: 276
-lastUpdated: 2026-06-13T01:19:43.987Z
+responseTime: 226
+lastUpdated: 2026-06-13T07:31:23.012Z
 startTime: 2025-12-19T11:36:53.235Z
 generator: Upptime <https://github.com/upptime/upptime>
